@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    </div>
+<div class="modal-body" id="modal-body">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Days</th>
+            <th>TPDoc</th>
+            <th>Equipment Number</th>
+            <th>Consignee Name</th>
+            <th>Last Free Date</th>
+            <th>FRT RLS</th>
+            <th>Customs Status</th>
+            <th>WO</th>
+            <th>Carrier Name</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in items">
+            <td class="text">{{item.Days}}</td>
+            <td class="text">{{item.TPDoc}}</td>
+            <td class="text">{{item.Equipment_Number}}</td>
+            <td class="text">{{item.Consignee_Name}}</td>
+            <td class="text">{{item.Last_Free_Day}}</td>
+            <td class="text">{{item.FRT_RLS}}</td>
+            <td class="text">{{item.Customs_Status}}</td>
+            <td class="text">{{item.WO}}</td>
+            <td class="text">{{item.Carrier_Name}}</td>
+        </tr>
+        </tbody>
+    </table>  
+</div>

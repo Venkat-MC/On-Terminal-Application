@@ -1,0 +1,54 @@
+<div ng-controller="View1Ctrl">
+<div>
+<h1> On-Terminal Application </h1>
+<br/>
+<span class="btn btn-default btn-file">
+    Select a file to upload <input type="file" id="myFile" onchange="angular.element(this).scope().readExcel(event)">
+</span>
+<button class="btn btn-info btn-sm" ng-click="displayPorts()">Categorize Records</button>
+</div>
+<br/>
+<br/>   
+<div ng-show="isDataReady">
+ <uib-tabset active="active">
+    <uib-tab index="$index + 1" ng-repeat="port in distinctPorts" heading="{{port}}" select="portDetails(port)">
+        <br/>
+        <br/>
+        <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Category</th>
+            <th>Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>On LFD</td>
+            <td><a ng-click="openModal('On LFD')">{{onLFD.length}}</a></td>
+        </tr>
+        <tr>
+            <td>Past LFD</td>
+            <td><a ng-click="openModal('Past LFD')">{{pastLFD.length}}</a></td>
+        </tr>
+        <tr>    
+            <td>Tomorrow LFD</td>
+            <td><a ng-click="openModal('Tomorrow LFD')">{{tomorrowLFD.length}}</a></td>
+        </tr>
+        <tr>
+            <td>Blank LFD</td>
+            <td><a ng-click="openModal('Blank LFD')">{{blankLFD.length}}</a></td>
+        </tr>
+        <tr>
+            <td>Discharge Without Work Order</td>
+            <td><a ng-click="openModal('DWO')">{{dwo.length}}</a></td>
+        </tr>
+        <tr>
+            <td>Work Order Cut Not Accepted</td>
+            <td><a ng-click="openModal('WO')">{{wo.length}}</a></td>
+        </tr>
+        </tbody>
+    </table>        
+    </uib-tab>
+  </uib-tabset>
+</div>
+</div>
